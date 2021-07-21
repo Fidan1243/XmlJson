@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfApp19.Views.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp19.Views" xmlns:ie1="http://schemas.microsoft.com/netfx/2009/xaml/presentation" xmlns:ie11="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <WrapPanel>
+            
+        <StackPanel Width="500">
+            <TextBlock FontSize="20">Name</TextBlock>
+            <TextBox FontSize="20" Name="NameTB">
+                    <ie11:Interaction.Triggers>
+                        <ie11:EventTrigger EventName="SelectionChanged">
+                            <ie11:InvokeCommandAction Command="{Binding TextChangedCommand}"  CommandParameter="{Binding ElementName=NameTB, Path=Text}"/>
+                        </ie11:EventTrigger>
+                    </ie11:Interaction.Triggers>
+                </TextBox>
+            <TextBlock FontSize="20" Margin="0,5">Surname</TextBlock>
+            <TextBox FontSize="20" Name="SurnameTB">
+                    <ie11:Interaction.Triggers>
+                        <ie11:EventTrigger EventName="SelectionChanged">
+                            <ie11:InvokeCommandAction Command="{Binding TextChangedCommand}"  CommandParameter="{Binding ElementName=SurnameTB, Path=Text}"/>
+                        </ie11:EventTrigger>
+                    </ie11:Interaction.Triggers>
+                </TextBox>
+            <TextBlock FontSize="20" Margin="0,5">Email</TextBlock>
+            <TextBox FontSize="20" Name="EmailTB">
+                    <ie11:Interaction.Triggers>
+                        <ie11:EventTrigger EventName="SelectionChanged">
+                            <ie11:InvokeCommandAction Command="{Binding TextChangedCommand}"  CommandParameter="{Binding ElementName=EmailTB, Path=Text}"/>
+                        </ie11:EventTrigger>
+                    </ie11:Interaction.Triggers>
+                </TextBox>
+            <Button FontSize="20" Margin="0,100" Command="{Binding SaveCommand}">Save</Button>
+        </StackPanel>
+        <StackPanel Margin="5" >
+                <RadioButton Name="XML" Content="XML">
+                    <ie11:Interaction.Triggers>
+                        <ie11:EventTrigger EventName="SelectionChanged">
+                            <ie11:InvokeCommandAction Command="{Binding CheckedChangedCommand}"  CommandParameter="{Binding ElementName=XML, Path=IsChecked}"/>
+                        </ie11:EventTrigger>
+                    </ie11:Interaction.Triggers>
+                </RadioButton>
+                <RadioButton Name="JSON" Content="Json">
+                    <ie11:Interaction.Triggers>
+                        <ie11:EventTrigger EventName="SelectionChanged">
+                            <ie11:InvokeCommandAction Command="{Binding CheckedChangedCommand}"  CommandParameter="{Binding ElementName=JSON, Path=IsChecked}"/>
+                        </ie11:EventTrigger>
+                    </ie11:Interaction.Triggers>
+                </RadioButton>
+        </StackPanel>
+        </WrapPanel>
+    </Grid>
+</Window>
