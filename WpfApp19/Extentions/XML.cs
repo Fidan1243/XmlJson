@@ -15,7 +15,7 @@ namespace WpfApp19.Extentions
         }
         public Person XMLDeserializer()
         {
-
+            return new Person();
         }
     }
 }
