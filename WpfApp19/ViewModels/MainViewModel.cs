@@ -15,11 +15,15 @@ namespace WpfApp19.ViewModels
         public Window1 MainWindow { get; set; }
         public Person Person { get; set; }
         public RelayCommand SaveCommand { get; set; }
-        public RelayCommand TextCommand { get; set; }
-        public RelayCommand CheckedChanged { get; set; }
+        public string NameText { get; set; }
+        public string SurnameText { get; set; }
+        public string MailText { get; set; }
         public bool IsXML { get; set; } = true;
+        public bool IsJson { get; set; } = false;
         public MainViewModel()
         {
+            
+
             SaveCommand = new RelayCommand
                 ((e) =>
                 {
@@ -29,6 +33,19 @@ namespace WpfApp19.ViewModels
                         adapter = new XMLAdapter(new XML());
                         
                     }
+                    else
+                    {
+                        adapter = new JsonAdapter(new Json());
+
+                    }
+                    Person = new Person
+                    {
+                        Email = MailText,
+                        Surname = SurnameText,
+                        Name = NameText
+                    };
+                    Application application = new Application(adapter);
+                    application.StartSerialize(Person);
                 }
                 );
         }

@@ -8,50 +8,23 @@
         Title="Window1" Height="450" Width="800">
     <Grid>
         <WrapPanel>
-            
-        <StackPanel Width="500">
-            <TextBlock FontSize="20">Name</TextBlock>
-            <TextBox FontSize="20" Name="NameTB">
-                    <ie11:Interaction.Triggers>
-                        <ie11:EventTrigger EventName="SelectionChanged">
-                            <ie11:InvokeCommandAction Command="{Binding TextChangedCommand}"  CommandParameter="{Binding ElementName=NameTB, Path=Text}"/>
-                        </ie11:EventTrigger>
-                    </ie11:Interaction.Triggers>
-                </TextBox>
-            <TextBlock FontSize="20" Margin="0,5">Surname</TextBlock>
-            <TextBox FontSize="20" Name="SurnameTB">
-                    <ie11:Interaction.Triggers>
-                        <ie11:EventTrigger EventName="SelectionChanged">
-                            <ie11:InvokeCommandAction Command="{Binding TextChangedCommand}"  CommandParameter="{Binding ElementName=SurnameTB, Path=Text}"/>
-                        </ie11:EventTrigger>
-                    </ie11:Interaction.Triggers>
-                </TextBox>
-            <TextBlock FontSize="20" Margin="0,5">Email</TextBlock>
-            <TextBox FontSize="20" Name="EmailTB">
-                    <ie11:Interaction.Triggers>
-                        <ie11:EventTrigger EventName="SelectionChanged">
-                            <ie11:InvokeCommandAction Command="{Binding TextChangedCommand}"  CommandParameter="{Binding ElementName=EmailTB, Path=Text}"/>
-                        </ie11:EventTrigger>
-                    </ie11:Interaction.Triggers>
-                </TextBox>
-            <Button FontSize="20" Margin="0,100" Command="{Binding SaveCommand}">Save</Button>
-        </StackPanel>
-        <StackPanel Margin="5" >
-                <RadioButton Name="XML" IsChecked="{Binding IsXML}" Content="XML">
-                    <ie11:Interaction.Triggers>
-                        <ie11:EventTrigger EventName="SelectionChanged">
-                            <ie11:InvokeCommandAction Command="{Binding CheckedChangedCommand}"  CommandParameter="{Binding ElementName=XML, Path=IsChecked}"/>
-                        </ie11:EventTrigger>
-                    </ie11:Interaction.Triggers>
-                </RadioButton>
-                <RadioButton Name="JSON" Content="Json">
-                    <ie11:Interaction.Triggers>
-                        <ie11:EventTrigger EventName="SelectionChanged">
-                            <ie11:InvokeCommandAction Command="{Binding CheckedChangedCommand}"  CommandParameter="{Binding ElementName=JSON, Path=IsChecked}"/>
-                        </ie11:EventTrigger>
-                    </ie11:Interaction.Triggers>
-                </RadioButton>
-        </StackPanel>
+
+            <StackPanel Width="500">
+                <TextBlock FontSize="20">Name</TextBlock>
+                <TextBox FontSize="20" Name="NameTB" Text="{Binding NameText,Mode=TwoWay}"></TextBox>
+
+                <TextBlock FontSize="20" Margin="0,5">Surname</TextBlock>
+
+                <TextBox FontSize="20" Name="SurnameTB" Text="{Binding SurnameText,Mode=TwoWay}"></TextBox>
+                <TextBlock FontSize="20" Margin="0,5">Email</TextBlock>
+
+                <TextBox FontSize="20" Name="EmailTB" Text="{Binding MailText,Mode=TwoWay}"></TextBox>
+                <Button FontSize="20" Margin="0,100" Command="{Binding SaveCommand}">Save</Button>
+            </StackPanel>
+            <StackPanel Margin="5" >
+                <RadioButton Name="XML" IsChecked="{Binding IsXML, Mode=TwoWay}" Content="XML"></RadioButton>
+                <RadioButton Name="JSON" Content="Json" IsChecked="{Binding IsJson,Mode=TwoWay}"></RadioButton>
+            </StackPanel>
         </WrapPanel>
     </Grid>
 </Window>

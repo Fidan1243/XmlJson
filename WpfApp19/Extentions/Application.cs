@@ -10,9 +10,9 @@ namespace WpfApp19.Extentions
     class Application
     {
         private readonly Adapter _adapter;
-        public Application(Adapter adapter)
+        public Application(IAdapter adapter)
         {
-            _adapter = adapter;
+            _adapter = new Adapter(adapter);
         }
         public void StartSerialize(Person person)
         {
