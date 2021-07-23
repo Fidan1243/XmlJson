@@ -46,6 +46,18 @@ namespace WpfApp19.ViewModels
                     };
                     Application application = new Application(adapter);
                     application.StartSerialize(Person);
+                },
+
+                (f) =>
+                {
+                    if (NameText != null && SurnameText != null && MailText != null)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 );
         }
